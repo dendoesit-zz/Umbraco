@@ -1,0 +1,23 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "master.cshtml";
+}
+<div class="container">
+@Umbraco.Field("articlesTitle")
+@Umbraco.Field("articlesBodyText")
+	
+@{
+	var selection = CurrentPage.Site().FirstChild("projectsMain").Children.Where("Visible");
+}
+<ul id="menu-list">
+	@foreach(var item in selection){
+		if (item == selection[3]){
+			break;
+		}
+		<li>
+			<a href="@item.Url">@item.Name</a>
+		</li>
+	}
+</ul>
+	</div>
+

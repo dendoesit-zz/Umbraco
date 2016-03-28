@@ -1,0 +1,9 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "master.cshtml";
+}
+
+@Model.Content.GetGridHtml("content")
+	@Umbraco.Field("bodyText")
+	
+	

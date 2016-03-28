@@ -1,0 +1,30 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "master.cshtml";
+}
+@Umbraco.Field("projectsBodyText")
+
+	
+@{
+	var selection = CurrentPage.Site().FirstChild("projectsMain").Children.Where("Visible");
+}
+<h2>Check out some of the stuff we are working with: </h2>
+
+    <ul>
+        @foreach (var item in selection)
+        {
+            <div class="container">
+                <a href="@item.Url"><h3>@item.Name</h3></a>
+                <p> Summary: @item.metaDescription</p>
+				<hr/>
+            </div>
+				
+        }
+</ul>
+
+
+
+
+
+	
+	

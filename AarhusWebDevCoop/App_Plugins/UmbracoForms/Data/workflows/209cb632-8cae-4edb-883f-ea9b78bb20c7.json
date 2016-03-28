@@ -1,0 +1,14 @@
+{
+  "id": "209cb632-8cae-4edb-883f-ea9b78bb20c7",
+  "name": "Send email to dan_claw20@yahoo.com when submitted",
+  "form": "d00a5d00-1119-4ba8-93f1-3fa110fd6192",
+  "active": true,
+  "workflowTypeId": "e96badd7-05be-4978-b8d9-b3d733de70a5",
+  "executesOn": "Submitted",
+  "settings": {
+    "Email": "dan_claw20@yahoo.com",
+    "Subject": "the form Contact Form was submitted",
+    "Message": "the form Contact Form was submitted, this is the list of values it contained, you can turn this email off under workflows in Umbraco Contour"
+  },
+  "sortOrder": 0
+}

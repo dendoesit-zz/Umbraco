@@ -1,0 +1,13 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+	@{var memberService = ApplicationContext.Current.Services.MemberService;
+var members = memberService.GetMembersByGroup("Active");}
+
+Skills:
+@{
+String[] skills = member.GetValue("skills").ToString().Split(',');
+string skillString =
+string.Join(", ", from skill in skills
+select umbraco.library.GetPreValueAsString(Convert.ToInt32(skill)));
+<span>@skillString</span>
+}

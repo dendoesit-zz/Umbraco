@@ -1,0 +1,17 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+ @foreach (var page in Model.Content.AncestorOrSelf(1).Children.Where("Visible"))
+{
+   <li><a href="@page.Url">@page.Name</a></li>
+   if (page.Children.Where("Visible").Count() > 0)
+   {
+      <select>
+         @foreach (var subpage in page.Children.Where("Visible"))
+         {
+            <option><a href="@subpage.Url">@subpage.Name</a></option>
+         }
+      </select>
+   }
+   
+}
+
+

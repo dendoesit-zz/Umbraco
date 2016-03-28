@@ -1,0 +1,17 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+@using Newtonsoft.Json;
+@using Umbraco.Web.Models;
+@{
+Layout = null;
+var memberService = ApplicationContext.Current.Services.MemberService;
+var members = memberService.GetMembersByGroup("Active");
+foreach (var member in members) {
+if (member.GetValue("photo") != null) {
+string image = member.GetValue<string>("photo");
+ImageCropDataSet imageCrops = JsonConvert.DeserializeObject<ImageCropDataSet>(image);
+string imagePath = imageCrops.Src.GetCropUrl();
+<img src="@imagePath " /><br>
+}
+}
+}
